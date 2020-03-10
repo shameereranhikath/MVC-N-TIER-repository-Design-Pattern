@@ -9,3 +9,4 @@ D:\Delete\MVC\MVCProject1\BOL\obj\Debug\BOL.csproj.CoreCompileInputs.cache
 D:\Delete\MVC\MVCProject1\BOL\obj\Debug\BOL.csproj.CopyComplete
 D:\Delete\MVC\MVCProject1\BOL\obj\Debug\BOL.dll
 D:\Delete\MVC\MVCProject1\BOL\obj\Debug\BOL.pdb
+D:\Delete\MVC\MVCProject1\BOL\obj\Debug\BOL.csprojAssemblyReference.cache
