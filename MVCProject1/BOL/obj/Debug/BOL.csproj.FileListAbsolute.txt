@@ -1,0 +1,11 @@
+D:\Delete\MVC\MVCProject1\BOL\bin\Debug\BOL.dll.config
+D:\Delete\MVC\MVCProject1\BOL\bin\Debug\BOL.dll
+D:\Delete\MVC\MVCProject1\BOL\bin\Debug\BOL.pdb
+D:\Delete\MVC\MVCProject1\BOL\bin\Debug\EntityFramework.dll
+D:\Delete\MVC\MVCProject1\BOL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Delete\MVC\MVCProject1\BOL\bin\Debug\EntityFramework.xml
+D:\Delete\MVC\MVCProject1\BOL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Delete\MVC\MVCProject1\BOL\obj\Debug\BOL.csproj.CoreCompileInputs.cache
+D:\Delete\MVC\MVCProject1\BOL\obj\Debug\BOL.csproj.CopyComplete
+D:\Delete\MVC\MVCProject1\BOL\obj\Debug\BOL.dll
+D:\Delete\MVC\MVCProject1\BOL\obj\Debug\BOL.pdb

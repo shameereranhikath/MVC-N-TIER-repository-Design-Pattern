@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InventoryDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CATEGORIES">
+    <Key>
+      <PropertyRef Name="CAT_ID" />
+    </Key>
+    <Property Name="CAT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CATNAME" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CAT_STATUS" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PIDETAILS">
+    <Key>
+      <PropertyRef Name="PID_ID" />
+    </Key>
+    <Property Name="PID_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PID_PURCHASEID" Type="bigint" Nullable="false" />
+    <Property Name="PID_PROID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PRODUCTS">
+    <Key>
+      <PropertyRef Name="PRO_ID" />
+    </Key>
+    <Property Name="PRO_ID" Type="int" Nullable="false" />
+    <Property Name="PRO_NAME" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="PRO_BARCODE" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PRO_EXPIRYDATE" Type="date" />
+    <Property Name="PRO_BUYINGPRICE" Type="money" />
+    <Property Name="PRO_SELLINGPRICE" Type="money" />
+  </EntityType>
+  <EntityType Name="PURCHASEINVOICE">
+    <Key>
+      <PropertyRef Name="PID" />
+    </Key>
+    <Property Name="PID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PI_DATE" Type="date" Nullable="false" />
+    <Property Name="PI_SUPPID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="r_id" />
+    </Key>
+    <Property Name="r_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="r_name" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="r_status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="STOCK">
+    <Key>
+      <PropertyRef Name="ST_ID" />
+    </Key>
+    <Property Name="ST_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ST_PROID" Type="int" Nullable="false" />
+    <Property Name="ST_PROCARTOON" Type="int" />
+    <Property Name="ST_PROPIECES" Type="int" />
+    <Property Name="ST_PURCHASEINVID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SUPPLIERS">
+    <Key>
+      <PropertyRef Name="SUP_ID" />
+    </Key>
+    <Property Name="SUP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SUP_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SUP_ADDRESS" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SUP_PHONE" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="SUP_OPENINGBALANCE" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USERS">
+    <Key>
+      <PropertyRef Name="U_ID" />
+    </Key>
+    <Property Name="U_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="U_NAME" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="U_USERNAME" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="U_PASSWORD" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="U_PHONE" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="U_EMAIL" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="U_STATUS" Type="tinyint" Nullable="false" />
+    <Property Name="U_ROLEID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__PIDETAILS__PID_P__6477ECF3">
+    <End Role="PURCHASEINVOICE" Type="Self.PURCHASEINVOICE" Multiplicity="1" />
+    <End Role="PIDETAILS" Type="Self.PIDETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PURCHASEINVOICE">
+        <PropertyRef Name="PID" />
+      </Principal>
+      <Dependent Role="PIDETAILS">
+        <PropertyRef Name="PID_PURCHASEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PURCHASEI__PI_SU__619B8048">
+    <End Role="SUPPLIERS" Type="Self.SUPPLIERS" Multiplicity="1" />
+    <End Role="PURCHASEINVOICE" Type="Self.PURCHASEINVOICE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SUPPLIERS">
+        <PropertyRef Name="SUP_ID" />
+      </Principal>
+      <Dependent Role="PURCHASEINVOICE">
+        <PropertyRef Name="PI_SUPPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__STOCK__ST_PROID__6A30C649">
+    <End Role="PRODUCTS" Type="Self.PRODUCTS" Multiplicity="1" />
+    <End Role="STOCK" Type="Self.STOCK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTS">
+        <PropertyRef Name="PRO_ID" />
+      </Principal>
+      <Dependent Role="STOCK">
+        <PropertyRef Name="ST_PROID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__STOCK__ST_PURCHA__6B24EA82">
+    <End Role="PURCHASEINVOICE" Type="Self.PURCHASEINVOICE" Multiplicity="1" />
+    <End Role="STOCK" Type="Self.STOCK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PURCHASEINVOICE">
+        <PropertyRef Name="PID" />
+      </Principal>
+      <Dependent Role="STOCK">
+        <PropertyRef Name="ST_PURCHASEINVID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PIDETAILS_PRODUCTS">
+    <End Role="PRODUCTS" Type="Self.PRODUCTS" Multiplicity="1" />
+    <End Role="PIDETAILS" Type="Self.PIDETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTS">
+        <PropertyRef Name="PRO_ID" />
+      </Principal>
+      <Dependent Role="PIDETAILS">
+        <PropertyRef Name="PID_PROID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USERS_roles">
+    <End Role="roles" Type="Self.roles" Multiplicity="1" />
+    <End Role="USERS" Type="Self.USERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="r_id" />
+      </Principal>
+      <Dependent Role="USERS">
+        <PropertyRef Name="U_ROLEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="st_getLoginDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="user" Type="varchar" Mode="In" />
+    <Parameter Name="pwd" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="st_getUserRolesWRTUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="user" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="InventoryDBModelStoreContainer">
+    <EntitySet Name="CATEGORIES" EntityType="Self.CATEGORIES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PIDETAILS" EntityType="Self.PIDETAILS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUCTS" EntityType="Self.PRODUCTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PURCHASEINVOICE" EntityType="Self.PURCHASEINVOICE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="roles" EntityType="Self.roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="STOCK" EntityType="Self.STOCK" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SUPPLIERS" EntityType="Self.SUPPLIERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__PIDETAILS__PID_P__6477ECF3" Association="Self.FK__PIDETAILS__PID_P__6477ECF3">
+      <End Role="PURCHASEINVOICE" EntitySet="PURCHASEINVOICE" />
+      <End Role="PIDETAILS" EntitySet="PIDETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PURCHASEI__PI_SU__619B8048" Association="Self.FK__PURCHASEI__PI_SU__619B8048">
+      <End Role="SUPPLIERS" EntitySet="SUPPLIERS" />
+      <End Role="PURCHASEINVOICE" EntitySet="PURCHASEINVOICE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__STOCK__ST_PROID__6A30C649" Association="Self.FK__STOCK__ST_PROID__6A30C649">
+      <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+      <End Role="STOCK" EntitySet="STOCK" />
+    </AssociationSet>
+    <AssociationSet Name="FK__STOCK__ST_PURCHA__6B24EA82" Association="Self.FK__STOCK__ST_PURCHA__6B24EA82">
+      <End Role="PURCHASEINVOICE" EntitySet="PURCHASEINVOICE" />
+      <End Role="STOCK" EntitySet="STOCK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PIDETAILS_PRODUCTS" Association="Self.FK_PIDETAILS_PRODUCTS">
+      <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+      <End Role="PIDETAILS" EntitySet="PIDETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USERS_roles" Association="Self.FK_USERS_roles">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="USERS" EntitySet="USERS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

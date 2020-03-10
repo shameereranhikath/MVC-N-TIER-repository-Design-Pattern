@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="InventoryDBModelStoreContainer" CdmEntityContainer="InventoryDBEntities">
+    <EntitySetMapping Name="CATEGORIES">
+      <EntityTypeMapping TypeName="InventoryDBModel.CATEGORy">
+        <MappingFragment StoreEntitySet="CATEGORIES">
+          <ScalarProperty Name="CAT_ID" ColumnName="CAT_ID" />
+          <ScalarProperty Name="CATNAME" ColumnName="CATNAME" />
+          <ScalarProperty Name="CAT_STATUS" ColumnName="CAT_STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PIDETAILS">
+      <EntityTypeMapping TypeName="InventoryDBModel.PIDETAIL">
+        <MappingFragment StoreEntitySet="PIDETAILS">
+          <ScalarProperty Name="PID_ID" ColumnName="PID_ID" />
+          <ScalarProperty Name="PID_PURCHASEID" ColumnName="PID_PURCHASEID" />
+          <ScalarProperty Name="PID_PROID" ColumnName="PID_PROID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRODUCTS">
+      <EntityTypeMapping TypeName="InventoryDBModel.PRODUCT">
+        <MappingFragment StoreEntitySet="PRODUCTS">
+          <ScalarProperty Name="PRO_ID" ColumnName="PRO_ID" />
+          <ScalarProperty Name="PRO_NAME" ColumnName="PRO_NAME" />
+          <ScalarProperty Name="PRO_BARCODE" ColumnName="PRO_BARCODE" />
+          <ScalarProperty Name="PRO_EXPIRYDATE" ColumnName="PRO_EXPIRYDATE" />
+          <ScalarProperty Name="PRO_BUYINGPRICE" ColumnName="PRO_BUYINGPRICE" />
+          <ScalarProperty Name="PRO_SELLINGPRICE" ColumnName="PRO_SELLINGPRICE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PURCHASEINVOICEs">
+      <EntityTypeMapping TypeName="InventoryDBModel.PURCHASEINVOICE">
+        <MappingFragment StoreEntitySet="PURCHASEINVOICE">
+          <ScalarProperty Name="PID" ColumnName="PID" />
+          <ScalarProperty Name="PI_DATE" ColumnName="PI_DATE" />
+          <ScalarProperty Name="PI_SUPPID" ColumnName="PI_SUPPID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="InventoryDBModel.role">
+        <MappingFragment StoreEntitySet="roles">
+          <ScalarProperty Name="r_id" ColumnName="r_id" />
+          <ScalarProperty Name="r_name" ColumnName="r_name" />
+          <ScalarProperty Name="r_status" ColumnName="r_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STOCKs">
+      <EntityTypeMapping TypeName="InventoryDBModel.STOCK">
+        <MappingFragment StoreEntitySet="STOCK">
+          <ScalarProperty Name="ST_ID" ColumnName="ST_ID" />
+          <ScalarProperty Name="ST_PROID" ColumnName="ST_PROID" />
+          <ScalarProperty Name="ST_PROCARTOON" ColumnName="ST_PROCARTOON" />
+          <ScalarProperty Name="ST_PROPIECES" ColumnName="ST_PROPIECES" />
+          <ScalarProperty Name="ST_PURCHASEINVID" ColumnName="ST_PURCHASEINVID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SUPPLIERS">
+      <EntityTypeMapping TypeName="InventoryDBModel.SUPPLIER">
+        <MappingFragment StoreEntitySet="SUPPLIERS">
+          <ScalarProperty Name="SUP_ID" ColumnName="SUP_ID" />
+          <ScalarProperty Name="SUP_NAME" ColumnName="SUP_NAME" />
+          <ScalarProperty Name="SUP_ADDRESS" ColumnName="SUP_ADDRESS" />
+          <ScalarProperty Name="SUP_PHONE" ColumnName="SUP_PHONE" />
+          <ScalarProperty Name="SUP_OPENINGBALANCE" ColumnName="SUP_OPENINGBALANCE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERS">
+      <EntityTypeMapping TypeName="InventoryDBModel.USER">
+        <MappingFragment StoreEntitySet="USERS">
+          <ScalarProperty Name="U_ID" ColumnName="U_ID" />
+          <ScalarProperty Name="U_NAME" ColumnName="U_NAME" />
+          <ScalarProperty Name="U_USERNAME" ColumnName="U_USERNAME" />
+          <ScalarProperty Name="U_PASSWORD" ColumnName="U_PASSWORD" />
+          <ScalarProperty Name="U_PHONE" ColumnName="U_PHONE" />
+          <ScalarProperty Name="U_EMAIL" ColumnName="U_EMAIL" />
+          <ScalarProperty Name="U_STATUS" ColumnName="U_STATUS" />
+          <ScalarProperty Name="U_ROLEID" ColumnName="U_ROLEID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="st_getLoginDetails" FunctionName="InventoryDBModel.Store.st_getLoginDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="InventoryDBModel.st_getLoginDetails_Result">
+          <ScalarProperty Name="U_USERNAME" ColumnName="U_USERNAME" />
+          <ScalarProperty Name="U_PASSWORD" ColumnName="U_PASSWORD" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="st_getUserRolesWRTUser" FunctionName="InventoryDBModel.Store.st_getUserRolesWRTUser" />
+  </EntityContainerMapping>
+</Mapping>

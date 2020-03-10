@@ -1,0 +1,16 @@
+D:\Delete\MVC\MVCProject1\BLL\bin\Debug\BLL.dll.config
+D:\Delete\MVC\MVCProject1\BLL\bin\Debug\BLL.dll
+D:\Delete\MVC\MVCProject1\BLL\bin\Debug\BLL.pdb
+D:\Delete\MVC\MVCProject1\BLL\bin\Debug\BOL.dll
+D:\Delete\MVC\MVCProject1\BLL\bin\Debug\DAL.dll
+D:\Delete\MVC\MVCProject1\BLL\bin\Debug\EntityFramework.dll
+D:\Delete\MVC\MVCProject1\BLL\bin\Debug\BOL.pdb
+D:\Delete\MVC\MVCProject1\BLL\bin\Debug\BOL.dll.config
+D:\Delete\MVC\MVCProject1\BLL\bin\Debug\DAL.pdb
+D:\Delete\MVC\MVCProject1\BLL\bin\Debug\DAL.dll.config
+D:\Delete\MVC\MVCProject1\BLL\bin\Debug\EntityFramework.xml
+D:\Delete\MVC\MVCProject1\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+D:\Delete\MVC\MVCProject1\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\Delete\MVC\MVCProject1\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\Delete\MVC\MVCProject1\BLL\obj\Debug\BLL.dll
+D:\Delete\MVC\MVCProject1\BLL\obj\Debug\BLL.pdb
